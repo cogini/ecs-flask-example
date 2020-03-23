@@ -46,15 +46,15 @@ phases:
       # ECS blue/green deployment action
       - printf '{"ImageURI":"%s"}' "$REPO_URI:$IMAGE_TAG" | tee imageDetail.json
 
-      - sed -i 's/<NAME>/'$CONTAINER_NAME'/g' appspec.yml taskdef.json
-      - sed -i 's/<PORT>/'$PORT'/g' appspec.yml taskdef.json
+      - sed -i 's!<NAME>!'$CONTAINER_NAME'!g' appspec.yml taskdef.json
+      - sed -i 's!<PORT>!'$PORT'!g' appspec.yml taskdef.json
       - sed -i 's!<TASK_ROLE_ARN>!'$TASK_ROLE_ARN'!g' taskdef.json
       - sed -i 's!<EXECUTION_ROLE_ARN>!'$EXECUTION_ROLE_ARN'!g' taskdef.json
-      - sed -i 's/<CPU>/'$CPU'/g' taskdef.json
-      - sed -i 's/<MEMORY>/'$MEMORY'/g' taskdef.json
-      - sed -i 's/<AWSLOGS_GROUP>/'$AWSLOGS_GROUP'/g' taskdef.json
-      - sed -i 's/<AWSLOGS_REGION>/'$AWS_REGION'/g' taskdef.json
-      - sed -i 's/<AWSLOGS_STREAM_PREFIX>/'$AWSLOGS_STREAM_PREFIX'/g' taskdef.json
+      - sed -i 's!<CPU>!'$CPU'!g' taskdef.json
+      - sed -i 's!<MEMORY>!'$MEMORY'!g' taskdef.json
+      - sed -i 's!<AWSLOGS_GROUP>!'$AWSLOGS_GROUP'!g' taskdef.json
+      - sed -i 's!<AWSLOGS_REGION>!'$AWS_REGION'!g' taskdef.json
+      - sed -i 's!<AWSLOGS_STREAM_PREFIX>!'$AWSLOGS_STREAM_PREFIX'!g' taskdef.json
 
       - cat appspec.yml
       - cat taskdef.json
