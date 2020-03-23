@@ -48,8 +48,8 @@ phases:
 
       - sed -i 's/<NAME>/'$CONTAINER_NAME'/g' appspec.yml taskdef.json
       - sed -i 's/<PORT>/'$PORT'/g' appspec.yml taskdef.json
-      - sed -i 's/<TASK_ROLE_ARN>/'$TASK_ROLE_ARN'/g' taskdef.json
-      - sed -i 's/<EXECUTION_ROLE_ARN>/'$EXECUTION_ROLE_ARN'/g' taskdef.json
+      - sed -i 's!<TASK_ROLE_ARN>!'$TASK_ROLE_ARN'!g' taskdef.json
+      - sed -i 's!<EXECUTION_ROLE_ARN>!'$EXECUTION_ROLE_ARN'!g' taskdef.json
       - sed -i 's/<CPU>/'$CPU'/g' taskdef.json
       - sed -i 's/<MEMORY>/'$MEMORY'/g' taskdef.json
       - sed -i 's/<AWSLOGS_GROUP>/'$AWSLOGS_GROUP'/g' taskdef.json
