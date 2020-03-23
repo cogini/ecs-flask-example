@@ -56,6 +56,9 @@ phases:
       - sed -i 's/<AWSLOGS_REGION>/$AWS_REGION/g' taskdef.json
       - sed -i 's/<AWSLOGS_STREAM_PREFIX>/$AWSLOGS_STREAM_PREFIX/g' taskdef.json
 
+      - cat appspec.yml
+      - cat taskdef.json
+
       - echo Build completed on `date`
 artifacts:
   files:
